@@ -1,2 +1,28 @@
-.container
-	%h1 Hello
+.container{ng: {controller: "TeamsController"} }
+	%h1 {{ heading }}
+
+	%ul
+		%li{ng: {repeat: "team in teams"} }
+			%h2 {{ team.city | uppercase }} {{ team.name | uppercase }} ( {{ team.abbr | uppercase }} )
+			%h4 {{ team.conference | uppercase }} {{ team.division | uppercase }}
+
+	%hr
+	%h1 Add a new team
+	= form_tag "", "ng-submit" => "create()" do
+		%fieldset
+			= label_tag :city
+			= text_field_tag :city, "", "ng-model" => "newTeam.city"
+			= label_tag :name
+			= text_field_tag :name, "", "ng-model" => "newTeam.name"
+			= label_tag :abbr
+			= text_field_tag :abbr, "", "ng-model" => "newTeam.abbr"
+		%fieldset
+			= label_tag :conference
+			= text_field_tag :conference, "", "ng-model" => "newTeam.conference"
+			= label_tag :division
+			= text_field_tag :division, "", "ng-model" => "newTeam.division"
+		%fieldset.actions
+			= submit_tag "Submit"
+
+	%p {{ newTeam.city | uppercase }} {{ newTeam.name | uppercase }} ( {{newTeam.abbr | uppercase }} )
+	%p {{ newTeam.conference | uppercase }} {{ newTeam.division | uppercase }}
