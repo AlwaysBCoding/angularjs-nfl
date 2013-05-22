@@ -15,9 +15,20 @@ class Team < ActiveRecord::Base
 # CLASS METHODS
 
 # INSTANCE METHODS
+	# CONFIG
 	def display_name
 		"#{city.titleize} #{name.titleize}"
 	end
+
+	def to_param
+		self.abbr
+	end
+
+	# FUNCTIONALITY
+	def roster
+		players
+	end
+
 
 # PRIVATE METHODS
 private

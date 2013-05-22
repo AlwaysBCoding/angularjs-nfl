@@ -1,0 +1,2 @@
+Database:
+ ☐ Add index to team.abbr since it is the slug in the routes

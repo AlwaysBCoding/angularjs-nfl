@@ -14,6 +14,11 @@ class TeamsController < ApplicationController
 		respond_with Team.create(team_params)
 	end
 
+	def roster
+		team = Team.find_by_abbr!(params[:id].downcase)
+		render json: team.roster
+	end
+
 private
 	def team_params
 		params.require(:team).permit(:city, :conference, :division, :name, :abbr)
