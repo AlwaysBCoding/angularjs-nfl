@@ -16,7 +16,6 @@ nflApp.controller "TeamsController", ["$scope", "Team", ($scope, Team) ->
 			$scope.newTeam = {}
 			), (response) ->
 				console.error "Error #{response.status}"
-
 ]
 
 nflApp.factory "Team", ["$resource", ($resource) ->

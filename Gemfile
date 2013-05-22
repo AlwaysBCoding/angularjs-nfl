@@ -29,6 +29,9 @@ gem 'haml-rails'
 # DEBUG
 gem 'pry-rails'
 
+# API
+gem 'nokogiri'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 

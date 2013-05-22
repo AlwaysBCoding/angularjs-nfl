@@ -1,6 +1,6 @@
-class Team < ActiveRecord::Base
+class Player < ActiveRecord::Base
 # ASSOCIATIONS
-	has_many :players
+	belongs_to :team
 
 # VALIDATIONS
 
@@ -16,10 +16,15 @@ class Team < ActiveRecord::Base
 
 # INSTANCE METHODS
 	def display_name
-		"#{city.titleize} #{name.titleize}"
+		"#{firstname.titleize} #{lastname.titleize} (#{position.upcase})"
+	end
+
+	def age
+	end
+
+	def display_height
 	end
 
 # PRIVATE METHODS
 private
-
 end
