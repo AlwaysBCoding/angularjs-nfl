@@ -17,11 +17,12 @@ class Player < ActiveRecord::Base
 # INSTANCE METHODS
 	# CONFIG
 	def display_name
-		"#{firstname.titleize} #{lastname.titleize} (#{position.upcase})"
+		"#{firstname.titleize} #{lastname.titleize}"
 	end
 
 	def as_json(options = {})
 		{
+			team: Team.find(team_id).abbr,
 			firstname: firstname,
 			lastname: lastname,
 			position: position,

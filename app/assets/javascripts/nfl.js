@@ -30,3 +30,16 @@ nflApp.factory("Team", [
     return $resource("/teams");
   }
 ]);
+
+nflApp.controller("PlayersController", [
+  "$scope", "Player", function($scope, Player) {
+    $scope.heading = "Players of the NFL";
+    return $scope.players = Player.query();
+  }
+]);
+
+nflApp.factory("Player", [
+  "$resource", function($resource) {
+    return $resource("/players");
+  }
+]);

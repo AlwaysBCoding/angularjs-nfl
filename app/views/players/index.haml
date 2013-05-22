@@ -1,0 +1,19 @@
+.container{ng: {controller: "PlayersController"} }
+	%h1 {{ heading }}
+
+	%input{ng: {model: "playerQuery"} }
+
+	%table
+		%thead
+			%th Team
+			%th Name
+			%th Position
+			%th Age
+			%th College
+		%tbody
+			%tr{ng: {repeat: "player in players | filter:playerQuery"} }
+				%td {{ player.team }}
+				%td {{ player.firstname }} {{ player.lastname }}
+				%td {{ player.position }}
+				%td {{ player.age }}
+				%td {{ player.college }}

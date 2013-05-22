@@ -7,4 +7,7 @@ AngularjsNfl::Application.routes.draw do
   	get "roster", on: :member
   end
 
+  # PLAYERS
+  resources :players
+
 end

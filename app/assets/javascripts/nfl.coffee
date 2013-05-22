@@ -21,3 +21,12 @@ nflApp.controller "TeamsController", ["$scope", "Team", ($scope, Team) ->
 nflApp.factory "Team", ["$resource", ($resource) ->
 	return $resource "/teams"
 ]
+
+nflApp.controller "PlayersController", ["$scope", "Player", ($scope, Player) ->
+	$scope.heading = "Players of the NFL"
+	$scope.players = Player.query()
+]
+
+nflApp.factory "Player", ["$resource", ($resource) ->
+	return $resource "/players"
+]

@@ -1,8 +1,6 @@
 class TeamsController < ApplicationController
 	skip_before_filter :verify_authenticity_token
 
-	respond_to :json
-
 	def index
 		respond_to do |format|
 			format.html
@@ -16,7 +14,12 @@ class TeamsController < ApplicationController
 
 	def roster
 		team = Team.find_by_abbr!(params[:id].downcase)
-		render json: team.roster
+
+		respond_to do |format|
+			format.html
+			format.json { render json: team.roster }
+		end
+
 	end
 
 private
