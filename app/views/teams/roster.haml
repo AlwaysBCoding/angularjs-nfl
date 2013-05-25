@@ -6,10 +6,19 @@
 	%table
 		%thead
 			%th Team
+			%th Jersey
 			%th Name
 			%th Position
+			%th Height - Weight
+			%th Age - Experience
+			%th College
+
 		%tbody
 			%tr{ng: {repeat: "player in players | filter:playerQuery"} }
 				%td {{ player.team }}
+				%td {{ player.jersey_number }}
 				%td {{ player.firstname }} {{ player.lastname }}
 				%td {{ player.position }}
+				%td {{ player.height }} - {{ player.weight }}
+				%td {{ player.age }} - {{ player.experience }}
+				%td {{ player.college }}

@@ -25,6 +25,7 @@ class Player < ActiveRecord::Base
 			team: Team.find(team_id).abbr,
 			firstname: firstname,
 			lastname: lastname,
+			jersey_number: jersey_number,
 			position: position,
 			height: height,
 			weight: weight,

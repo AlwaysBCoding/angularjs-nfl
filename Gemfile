@@ -15,8 +15,24 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# TEST
+group :development, :test do
+	gem 'rspec-rails'
+end
+group :test do
+	gem 'factory_girl_rails'
+	gem 'shoulda-context'
+	gem 'shoulda-matchers'
+	gem 'database_cleaner'
+end
+
 # DATABASE
-	gem 'pg'
+	group :development, :production do
+		gem 'pg'
+	end
+	group :test do
+		gem 'sqlite3'
+	end
 
 # ASSETS
 	gem 'jquery-rails'
