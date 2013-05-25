@@ -27,7 +27,7 @@ class Player < ActiveRecord::Base
 			lastname: lastname,
 			jersey_number: jersey_number,
 			position: position,
-			height: height,
+			height: display_height,
 			weight: weight,
 			age: age,
 			experience: experience,
@@ -41,6 +41,7 @@ class Player < ActiveRecord::Base
 	end
 
 	def display_height
+		"#{height/12}'#{height%12}"
 	end
 
 	# FUNCTIONALITY
