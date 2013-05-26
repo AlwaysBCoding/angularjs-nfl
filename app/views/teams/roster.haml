@@ -1,6 +1,11 @@
 .container{ng: {controller: "PlayersController"} }
 	%h1 {{ heading }}
 
+	%h1 Teams
+	.team-logos
+		.team-logo{style: "display: inline;", ng: {repeat: "team in teams"}}
+			%img{src: "https://s3.amazonaws.com/angularjs-nfl/{{team.name}}.gif"}
+
 	%input{ng: {model: "abbr"} }
 	%button{ng: {click: "fetchRoster()"}} Fetch Roster
 

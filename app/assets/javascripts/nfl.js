@@ -32,8 +32,9 @@ nflApp.factory("Team", [
 ]);
 
 nflApp.controller("PlayersController", [
-  "$scope", "Player", "Roster", function($scope, Player, Roster) {
+  "$scope", "Player", "Team", "Roster", function($scope, Player, Team, Roster) {
     $scope.heading = "Players of the NFL";
+    $scope.teams = Team.query();
     $scope.players = Roster.query({
       abbr: $scope.abbr
     });

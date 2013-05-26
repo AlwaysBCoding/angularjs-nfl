@@ -22,8 +22,9 @@ nflApp.factory "Team", ["$resource", ($resource) ->
 	return $resource "/teams"
 ]
 
-nflApp.controller "PlayersController", ["$scope", "Player", "Roster", ($scope, Player, Roster) ->
+nflApp.controller "PlayersController", ["$scope", "Player", "Team", "Roster", ($scope, Player, Team, Roster) ->
 	$scope.heading = "Players of the NFL"
+	$scope.teams = Team.query()
 	$scope.players = Roster.query(abbr: $scope.abbr)
 
 	$scope.fetchRoster = ->
@@ -39,9 +40,11 @@ nflApp.factory "Roster", ["$resource", ($resource) ->
 ]
 
 # CUSTOM FILTERS
-angular.module("customFilters", []).filter(
-	"titleize", ->
-		(input) ->
-			input.charAt(0).toUpperCase() + input.slice(1);
-	)
+angular.module("customFilters", [])
+
+	.filter(
+		"titleize", ->
+			(input) ->
+				input.charAt(0).toUpperCase() + input.slice(1);
+		)
 
