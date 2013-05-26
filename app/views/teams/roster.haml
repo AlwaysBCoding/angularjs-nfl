@@ -1,7 +1,8 @@
 .container{ng: {controller: "PlayersController"} }
 	%h1 {{ heading }}
 
-	%input{ng: {model: "playerQuery"} }
+	%input{ng: {model: "abbr"} }
+	%button{ng: {click: "fetchRoster()"}} Fetch Roster
 
 	%table
 		%thead
@@ -14,11 +15,11 @@
 			%th College
 
 		%tbody
-			%tr{ng: {repeat: "player in players | filter:playerQuery"} }
-				%td {{ player.team }}
+			%tr{ng: {repeat: "player in players"} }
+				%td {{ player.team | uppercase }}
 				%td {{ player.jersey_number }}
-				%td {{ player.firstname }} {{ player.lastname }}
-				%td {{ player.position }}
+				%td {{ player.firstname | titleize }} {{ player.lastname |titleize }}
+				%td {{ player.position | uppercase }}
 				%td {{ player.height }} - {{ player.weight }}
 				%td {{ player.age }} - {{ player.experience }}
-				%td {{ player.college }}
+				%td {{ player.college | titleize }}

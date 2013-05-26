@@ -29,7 +29,7 @@ class Player < ActiveRecord::Base
 			position: position,
 			height: display_height,
 			weight: weight,
-			age: age,
+			age: display_age,
 			experience: experience,
 			college: college,
 			status: status
@@ -38,6 +38,10 @@ class Player < ActiveRecord::Base
 
 	def age
 		birthdate.present? ? (Date.today - birthdate).to_i / 365 : nil ;
+	end
+
+	def display_age
+		age.present? ? "#{age}" : "?"
 	end
 
 	def display_height

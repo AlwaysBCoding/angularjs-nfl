@@ -13,11 +13,11 @@ class TeamsController < ApplicationController
 	end
 
 	def roster
-		team = Team.find_by_abbr!(params[:id].downcase)
+		@team = Team.find_by_abbr!(params[:id].downcase)
 
 		respond_to do |format|
 			format.html
-			format.json { render json: team.roster }
+			format.json { render json: @team.roster }
 		end
 
 	end
